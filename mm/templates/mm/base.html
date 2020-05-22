@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <title>Manager Manager</title>
+        <link rel="stylesheet" href="{% static 'mm/style.css' %}" type="text/css">
+    </head>
+    <body>
+        <header>
+            {% block header %}
+            <h1>Manager Manager</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="{% url 'mm:login' %}">Sign In</a></li>
+                </ul>
+            </nav>
+            {% endblock %}
+        </header>
+        <main>
+            {% block main %}
+            <p>
+                Manager Manager is a web application for people managers that
+                helps you manage your team.
+            </p>
+            {% endblock %}
+        </main>
+        <footer>
+            {% block footer %}
+            <p>
+                &copy; 2020 Lev Lazinskiy
+            </p>
+            <ul>
+                <li><a href="https://github.com/levlaz" target="_blank">GitHub</a></li>
+            </ul>
+            {% endblock %}
+        </footer>
+    </body>
+</html>
