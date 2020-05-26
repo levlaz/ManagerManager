@@ -1,0 +1,8 @@
+{% extends "mm/dashboard.html" %}
+
+{% block content %}
+    <h2>{{ person }}</h2>
+    <p>{{ person.title }}</p>
+    <p>{{ person.email }}</p>
+    <p>{{ person.win_set.all }}</p>
+{% endblock %}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <title>Manager Manager</title>
+        <link rel="stylesheet" href="{% static 'mm/dashboard.css' %}"
+              type="text/css">
+    </head>
+    <body>
+        <header>
+            {% block header %}
+            Manager Manager
+            <a href="{% url 'mm:logout' %}">Sign Out</a>
+            {% endblock %}
+        </header>
+        <main>
+            {% block main %}
+            <nav>
+                {% block nav %}
+                <ul>
+                    <li><a href="{% url 'mm:dashboard' %}">Home</a></li>
+                </ul>
+                <p class="sidebar">Reports</p>
+                <ul>
+                    <li><a href="{% url 'mm:reporting' %}">Reporting
+                        Structure</a></li>
+                </ul>
+                {% endblock %}
+            </nav>
+            <div class="content">
+            {% block content %}
+            <h2>My People</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Person</th>
+                        <th>Tenure</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for person in people %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'mm:person-detail' person.id %}">
+                                {{ person }}
+                            </a>
+                            <br>{{ person.title }}
+                            <br>
+                            <a href="mailto:{{ person.email }}" target="_blank">
+                                {{ person.email }}
+                            </a>
+                        </td>
+                        <td>{{ person.tenure }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endblock %}
+            </div>
+
+            {% endblock %}
+        </main>
+        <footer>
+            {% block footer %}
+            <p>
+                &copy; 2020 Lev Lazinskiy
+            </p>
+            <ul>
+                <li><a href="https://github.com/levlaz" target="_blank">GitHub</a></li>
+            </ul>
+            {% endblock %}
+        </footer>
+    </body>
+</html>

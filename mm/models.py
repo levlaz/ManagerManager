@@ -24,7 +24,7 @@ class Person(models.Model):
     location = models.CharField(max_length=255)
     segment = models.CharField(max_length=255)
     manager = models.ForeignKey("Person", on_delete=models.CASCADE,
-                                null=True, blank=True)
+                                null=True, blank=True, related_name='employee')
 
     class Meta:
         verbose_name_plural = 'people'

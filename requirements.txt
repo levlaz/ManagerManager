@@ -1,5 +1,11 @@
-
-python-dateutil
-
-
+#Django
 Django~=3.0.6
+
+#Databases
+psycopg2-binary
+
+# Utilities
+python-dateutil
+python-dotenv
+
+

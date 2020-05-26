@@ -1,0 +1,19 @@
+{% extends "mm/dashboard.html" %}
+
+{% block content %}
+    <h2>Reporting Structure</h2>
+    <ul>
+        {% for manager in managers %}
+        <li style="margin-top: 15px;">
+            <a href="{% url 'mm:person-detail' manager.id %}">{{manager}}</a>
+            [{{ manager.employee.all.count }}]
+        </li>
+            {% for employee in manager.employee.all %}
+            <ul>
+            <li><a href="{% url 'mm:person-detail' employee.id %}">
+                {{ employee }}</a></li>
+            </ul>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+{% endblock %}
